@@ -142,6 +142,54 @@ def donut():
             donut_sign = CLEAR_TOKEN+d
             sys.stdout.write(donut_sign)
             time.sleep(1/60)
-        
+
+def donut2():
+    with open('donut.txt', 'r') as f:
+        donut_data = f.read()
+    CLEAR_TOKEN = "\033[H\033[J"
+    # clear_token credit https://stackoverflow.com/a/50560686/13903942
+    donut = eval(donut_data)
+    # print(donut)
+    # donut_json = json.loads(donut_data)
+    # print(donut_data)
+    while True:
+        for d in donut:
+            donut_sign = CLEAR_TOKEN+d
+            sys.stdout.write(donut_sign)
+            time.sleep(1/60)
+
+def donut_colorama():
+
+    from colorama import init
+    from colorama import Fore, Back, Style
+
+    init()
+    RED_TOKEN = '\033[31m'
+
+    with open('donut.txt', 'r') as f:
+        donut_data = f.read()
+    CLEAR_TOKEN = "\033[H\033[J"
+    # clear_token credit https://stackoverflow.com/a/50560686/13903942
+    donut = eval(donut_data)
+    # print(donut)
+    # donut_json = json.loads(donut_data)
+    # print(donut_data)
+    # while True: RED 
+    #     for d in donut:
+    #         donut_sign = CLEAR_TOKEN+d
+    #         sys.stdout.write(RED_TOKEN + donut_sign)
+    #         time.sleep(1/60)
+    
+    print(Fore.WHITE + 'some red text')
+    print(Back.BLACK + 'and with a green background')
+    while True: 
+        for d in donut:
+            donut_sign = CLEAR_TOKEN+d
+            sys.stdout.write(donut_sign)
+            time.sleep(1/60)
+    # print(Style.RESET_ALL)
+
 if __name__ == "__main__":
-    donut()
+    # donut()
+    # donut2()
+    donut_colorama()
